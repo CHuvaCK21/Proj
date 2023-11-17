@@ -6,12 +6,12 @@
 int main()
 {
 	setlocale(LC_ALL, ""); //Русский язык
-	char a[32], b[32];// Объявление массива типа char для заполнения 
+	char a[32], b[32];// Объявление массивов типа char для заполнения 
 	unsigned int sel, check, go = 0; // Объявление переменных
 	printf("1 - Приветствие\n2 - Перевод десятичного числа в двоичное\nВыберите функцию: ");
 	scanf_s("%d", &sel); //Ввод выбора функции
 	if ( sel == 1 ) {
-		printf("\nПривет");
+		printf("\nПривет"); 
 	}
 
 	if ( sel == 2 ) {
@@ -29,6 +29,22 @@ int main()
 			}
 			printf("\n");
 		} while ( a[0] != '0' ); //Цикл будет действовать пока мы не введем 0
+	}
+	if ( sel == 3 ) {
+		printf("Test on dynamic memory");
+		int n;
+		scanf_s("%d", &n);
+		int* check;
+		check = (int*)malloc(n * sizeof(int));
+		for ( int i = 0; i < n; i++ ) {
+			scanf_s("%d", &check[i]);
+			//check++;
+		}
+		for ( int i = 0; i < n; i++ ) {
+		printf("%d", check[i]);
+		//check++;
+}
+		free(check);
 	}
 	return 0; // Возврат 0 в случае успешного закрытия программы
 }
