@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void cleanArr(char *a) { //Очищение массива
-	for ( int i = 0; i < sizeof(a)/sizeof(char); i++ ) {
+	for ( int i = 0; i < 32; i++ ) {
 		*a = '\0';
 		a++;
 	}
