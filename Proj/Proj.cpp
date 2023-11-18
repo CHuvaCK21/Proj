@@ -39,7 +39,7 @@ int main()
 		printf("Test on dynamic memory");
 		int n;
 		scanf_s("%d", &n);
-		int* check;
+		int* check = nullptr;
 		check = (int*)malloc(n * sizeof(int));
 		for ( int i = 0; i < n; i++ ) {
 			scanf_s("%d", &check[i]);
