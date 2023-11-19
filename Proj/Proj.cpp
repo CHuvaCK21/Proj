@@ -39,15 +39,21 @@ int main()
 		printf("Test on dynamic memory");
 		int n;
 		scanf_s("%d", &n);
-		int* check = nullptr;
+		int* check;
 		check = (int*)malloc(n * sizeof(int));
-		for ( int i = 0; i < n; i++ ) {
-			scanf_s("%d", &check[i]);
+		if ( check == NULL) {
+			printf("Ошибка, память не выделена");
 		}
-		for ( int i = 0; i < n; i++ ) {
-		printf("%d", check[i]);
+		else {
+
+			for ( int i = 0; i < n; i++ ) {
+				scanf_s("%d", &check[i]);
+			}
+			for ( int i = 0; i < n; i++ ) {
+				printf("%d", check[i]);
+			}
+			free(check);
 		}
-		free(check);
 	}
 
 	return 0; // Возврат 0 в случае успешного закрытия программы
