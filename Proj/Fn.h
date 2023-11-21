@@ -1,4 +1,4 @@
 void TrToBin(unsigned int a); // Объявление функции в заголовочном файле Fn.h
-int CheckStr(char * a, char * b); //Объявление функции проверки строки
-void Table(unsigned int *count, unsigned int*count2);
-void cleanArr(char *a);
+int CheckStr(char * a, char * b, unsigned int *ch); //Объявление функции проверки строки
+void Table(unsigned int *count, unsigned int*count2, unsigned int * ch); //Объявление функции вывода двоичных чисел в виде таблицы
+void cleanArr(char *a); //Фунция очистки массива
