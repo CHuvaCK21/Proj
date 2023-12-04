@@ -2,6 +2,27 @@
 #include <string.h>
 #include <stdlib.h>
 
+
+int checkLen(char * b) {
+	unsigned int ch5 = 0;
+		for ( int i = 0; i < 9; i++ ) {
+			if ( *b != '\0' ) {
+				ch5 = ch5 * 10 + ( *b - '0' );
+				b++;
+			}
+		}
+		if ( ch5 > 429496729 ) {
+			return -1;
+		}
+		else if(ch5 == 429496729) {
+			if ( *b > '5' ) {
+				return -1;
+			}
+			else {
+				return 0;
+			}
+		}
+}
 void cleanArr(char *a) { //Очищение массива
 	for ( int i = 0; i < 32; i++ ) {
 		*a = '\0';
@@ -31,7 +52,7 @@ void Table(unsigned int* count, unsigned int* count2, unsigned int *ch) {
 	unsigned int cunt = 1; //Переменная для вывода порядкового номера числа
 	printf("  №\tЧисло\t\t\tДвоичный код\n"); //Заголовочный текст
 	do { //Цикл do while
-		printf("  %d\t%d", cunt, *count2); //Печать через табуляцию порядкового номера числа и само число
+		printf("  %d\t%lu", cunt, *count2); //Печать через табуляцию порядкового номера числа и само число
 		for ( unsigned int i = 0; i < (24-*ch); i++ ) { //Уравнивание двоичного числа в таблице
 			printf("."); //Печать точки для удобства
 		}
@@ -61,6 +82,7 @@ int CheckStr(char  *a, char * b, unsigned int *ch) {
 		return 0;//Возврат 0 в случае если чисел требуемое количество
 	}
 	else {
+		( *ch ) = 0;
 		return -1; //В случае если чисел больше, возвращаем -1
 	}
 }
