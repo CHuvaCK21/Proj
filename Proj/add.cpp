@@ -22,6 +22,9 @@ int checkLen(char * b) {
 				return 0;
 			}
 		}
+		else {
+			return 0;
+		}
 }
 void cleanArr(char *a) { //Очищение массива
 	for ( int i = 0; i < 32; i++ ) {

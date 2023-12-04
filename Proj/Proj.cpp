@@ -23,7 +23,8 @@ int main()
 
 			if ( check != -1 ) { // Проверка на наличие ошибок
 				if ( ch[i] == 10 ) {
-					if ( checkLen(b) == 0 ) {
+					int hh = checkLen(b);
+					if ( hh == 0 ) {
 						go = atoll(b); //char переводим в int
 						cleanArr(b); //Очистка массива
 						count2[i] = go; //Присваиваем элементу массива наше число, что было переведено в int в строке 24
