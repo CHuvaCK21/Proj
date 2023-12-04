@@ -53,7 +53,7 @@ int main()
 //		int c = 10;
 		char ci[] = "4294967296";
 		//char ci[] = "54875";
-		check5(ci);
+		checkLen(ci);
 //		printf("%d", c);
 		/*		printf("Test on dynamic memory");
 				int n;
