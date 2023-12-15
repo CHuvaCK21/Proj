@@ -58,10 +58,10 @@ void TrToBin(unsigned int a) { // Перевод в двоичное число
 
 void Table(unsigned int* count, unsigned int* count2, unsigned int *ch) {
 	unsigned int cunt = 1; //Переменная для вывода порядкового номера числа
-	printf("  №\tЧисло\t\t\tДвоичный код\n"); //Заголовочный текст
+	printf("\t\t\t\t\t\t\t\t\t\t\t№\tЧисло\t\t\t Двоичный код\n"); //Заголовочный текст
 
 	do { //Цикл do while
-		printf("  %d\t%lu", cunt, *count2); //Печать через табуляцию порядкового номера числа и само число
+		printf("\t\t\t\t\t\t\t\t\t\t\t%d\t%lu", cunt, *count2); //Печать через табуляцию порядкового номера числа и само число
 		for ( unsigned int i = 0; i < (24-*ch); i++ ) { //Уравнивание двоичного числа в таблице
 			printf("."); //Печать точки для удобства
 		}
