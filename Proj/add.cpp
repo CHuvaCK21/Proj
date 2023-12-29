@@ -24,10 +24,10 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 
 void Tabl(vector<Kniga> tk, unsigned int in, unsigned int *ch) {
 	unsigned int c = 1;
-	cout << "№ Имя абонента \t\tНомер телефона"<<endl;
+	cout << "\t\t\t\t№ Имя абонента \t\tНомер телефона"<<endl;
 	do {
 		for ( auto i = tk.begin(); i != tk.end(); i++ ) {
-			cout << c<<" ";
+			cout << "\t\t\t\t" << c << " ";
 			i->print(ch);
 			c++;
 			ch++;
