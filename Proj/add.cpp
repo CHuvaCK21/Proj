@@ -1,7 +1,9 @@
+#include <iostream>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "locale.h"
+#include <vector>
 #include "Fn.h"
 
 void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
@@ -20,9 +22,20 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 	} while ( cunt < c); //Пока счетчик цикла меньше чем количество введенных номеров и имен
 }
 
+void Tabl(vector<Kniga> tk, unsigned int in, unsigned int *ch) {
+	unsigned int c = 1;
+	cout << "№ Имя абонента \t\tНомер телефона"<<endl;
+	do {
+		for ( auto i = tk.begin(); i != tk.end(); i++ ) {
+			cout << c<<" ";
+			i->print(ch);
+			c++;
+			ch++;
+		}
+	} while (c < in);
+}
 int NumberIn(Number& phTel, unsigned int *ch) //Функция ввода номера телефона
 {
-
 	printf("Ведите номер телефона: "); //Просьба ввести номер телефона
 	char a[39], b[39]; //2 массива, в один будет записан номер, в другой будет записан номер исправленный без букв и т.д
 	scanf_s("%s", a, 39); //Ввод в массив a
