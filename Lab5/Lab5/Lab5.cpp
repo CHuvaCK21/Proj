@@ -1,4 +1,4 @@
-﻿#include "/Users/andre/source/repos/CHuvaCK21/Proj/Proj/Fn.h"
+﻿#include "../../Proj/Fn.h"
 #include <iostream>
 #include <string>
 #include <locale>

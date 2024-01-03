@@ -1,4 +1,4 @@
-#include "/Users/andre/source/repos/CHuvaCK21/Proj/Proj/Fn.h"
+#include "../../Proj/Fn.h"
 #include <iostream>
 
 int Kniga::write2(unsigned int *c) {
