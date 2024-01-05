@@ -23,16 +23,16 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 }
 
 void Tabl(vector<Kniga> tk, unsigned int in, unsigned int *ch) {
-	unsigned int c = 1;
-	cout << "\t\t\t\t№ Имя абонента \t\tНомер телефона"<<endl;
+	unsigned int c = 1; //Переменная для вывода порядкого номера
+	cout << "\t\t\t\t№ Имя абонента \t\tНомер телефона"<<endl; //Вывод заголовка
 	do {
-		for ( auto i = tk.begin(); i != tk.end(); i++ ) {
-			cout << "\t\t\t\t" << c << " ";
-			i->print(ch);
-			c++;
+		for ( auto i = tk.begin(); i != tk.end(); i++ ) { //Цикл прохода по динамическому массиву
+			cout << "\t\t\t\t" << c << " "; //Вывод табуляций и порядкового номера
+			i->print(ch); //Запуск функции print из массива
+			c++; //Прибавление 1 к порядковому номеру
 			ch++;
 		}
-	} while (c < in);
+	} while (c < in); //Пока порядковый номер меньше количества введенных чисел
 }
 int NumberIn(Number& phTel, unsigned int *ch) //Функция ввода номера телефона
 {
