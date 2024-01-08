@@ -5,7 +5,7 @@ using namespace std;
 
 typedef struct Numb
 {
-	unsigned long long phone : 44;
+	unsigned long long phone : 44; //*Обоснование размера в отчете
 	unsigned long long Plus : 1;
 }Number;
 
@@ -27,24 +27,22 @@ void TelTable(Book*, unsigned int*, unsigned int);
 
 class Nomer {
 protected:
-	unsigned long long num : 44;
-	unsigned long long plus : 1;
+	unsigned long long num : 44; //Переменная размером 44 бита для хранения номера телефона
+	unsigned long long plus : 1; //Переменная для наличия символа +
 public:
-	Nomer(unsigned long long num, unsigned long long plus) : num(num), plus(plus ? 1 : 0) {}
-	Nomer() : num(0), plus(0) {}
-	~Nomer() {};
+	Nomer() {} //Конструктор
+	~Nomer() {}; //Деструктор
 };
 
-class Kniga : Nomer{
+class Kniga : Nomer{ //Класс, унаследованный от класса Nomer
 protected:
-	string name;
+	string name; //Закрытая от других функций переменная name типа string
 public:
-	int write();
-	int write2(unsigned int *);
-	void print(unsigned int *);
-	Kniga(){}
-	Kniga(const char* name, unsigned long long num, unsigned long long plus): name(name), Nomer(num,plus){};
-	~Kniga() {};
+	int write(); //Функция записи номера телефона
+	int write2(unsigned int *); //Функция записи имени
+	void print(unsigned int *); //Функция вывода имени и номера телефона
+	Kniga(){} //Конструктор
+	~Kniga() {}; //Деструктор
 };
 
-void Tabl(vector<Kniga>, unsigned int, unsigned int*);
+void Tabl(vector<Kniga>, unsigned int, unsigned int*); //Объявление функции Tabl, предназначенная для создания таблицы
