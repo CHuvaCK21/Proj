@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "locale.h"
+#include <iomanip>
 #include <vector>
 #include "Fn.h"
 
@@ -22,15 +23,16 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 	} while ( cunt < c); //Пока счетчик цикла меньше чем количество введенных номеров и имен
 }
 
-void Tabl(vector<Kniga> let, unsigned int in, unsigned int *ch) {
+void Tabl(vector<Kniga> *let, unsigned int in, int ch) {
 	unsigned int c = 1; //Переменная для вывода порядкого номера
-	cout << "№ Имя абонента \t\tНомер телефона"<<endl; //Вывод заголовка
+	cout << "№   Имя абонента"<< setw(26); //Вывод заголовка
+	cout <<"Номер абонента"<<endl; //Вывод заголовка
 	do {
-		for ( auto i = let.begin(); i != let.end(); i++ ) { //Цикл прохода по динамическому массиву
-			cout << c << " "; //Вывод табуляций и порядкового номера
-			i->print(ch); //Вызов функции print с передачей ей количества символов в имени
+		for ( auto i = let->begin(); i != let->end(); i++ ) { //Цикл прохода по динамическому массиву
+			cout << c; //Вывод порядкового номера
+			i->print(&ch); //Вызов функции print с передачей ей количества символов в имени
 			c++; //Прибавление 1 к порядковому номеру
-			ch++; //Пеоеход по массиву с количеством символов в имениы
+			//ch++; //Пеоеход по массиву с количеством символов в имениы
 		}
 	} while (c < in); //Пока порядковый номер меньше количества введенных чисел
 }

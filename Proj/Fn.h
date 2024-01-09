@@ -5,7 +5,7 @@ using namespace std;
 
 typedef struct Numb
 {
-	unsigned long long phone : 44; //*Обоснование размера в отчете
+	unsigned long long phone : 44; //Обоснование размера в отчете
 	unsigned long long Plus : 1;
 }Number;
 
@@ -40,9 +40,10 @@ protected:
 public:
 	int write(); //Функция записи номера телефона
 	int write2(unsigned int *); //Функция записи имени
-	void print(unsigned int *); //Функция вывода имени и номера телефона
+	void print(int *); //Функция вывода имени и номера телефона
+	int sort(vector<Kniga>*);
 	Kniga(){} //Конструктор
 	~Kniga() {}; //Деструктор
 };
 
-void Tabl(vector<Kniga>, unsigned int, unsigned int*); //Объявление функции Tabl, предназначенная для создания таблицы
+void Tabl(vector<Kniga>*, unsigned int, int); //Объявление функции Tabl, предназначенная для создания таблицы

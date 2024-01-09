@@ -1,5 +1,6 @@
 #include "../../Proj/Fn.h"
 #include <iostream>
+#include <iomanip>
 #include <locale.h>
 
 int Kniga::write2(unsigned int *c) {
@@ -23,13 +24,16 @@ int Kniga::write2(unsigned int *c) {
 	return 0;
 }
 
-void Kniga::print(unsigned int *ch) {
-	cout << name << " "; //Вывод имени
-	for (unsigned int i = 0; i < (21 - *ch); i++) { //Выравнивание таблицы по количеству символов в имени
-		cout << "."; //Печать точки для удобства
+void Kniga::print(int *ch) {
+	cout <<"   " << name; //Вывод имени
+	for (unsigned int i = 0; i < *ch - size(name); i++) { //Выравнивание таблицы по количеству символов в имени
+		cout << " "; //Печать пробелов для удобства
+	}
+	for (int i = 0; i < 24-*ch; i++) {
+		cout << " ";
 	}
 	cout << (plus ? "+" : " "); //Вывод знака + или пробела если в plus записано 1 или 0
-	cout << num << endl; //Вывод номера телефона
+	cout <<num << endl; //Вывод номера телефона
 }
 
 int Kniga::write() {
@@ -61,4 +65,33 @@ int Kniga::write() {
 			return -2; //Возврат -2 в случае если превышено количество символов
 		}
 	}
+}
+
+int Kniga::sort(vector<Kniga> *let) {
+	int i = 0, srav = 0;
+	string copy;
+	unsigned long long temp1, temp2;
+	vector<Kniga>::iterator k = let->begin();
+	for (auto h = let->begin(); h != let->end(); h++) {
+		if (h->name[0] >= 97 && h->name[0] <= 122) {
+			h->name[0] = (h->name[0] - 32);
+		}
+	}
+	for (int s = 0; s < let->size() - 1; s++) {
+		for (int g = 1, c = 0; g < let->size()-s; c++, g++) {
+			srav++;
+			if (k[c].name > k[g].name) {
+				copy = k[g].name;
+				temp1 = k[g].num;
+				temp2 = k[g].plus;
+				k[g].name = k[c].name;
+				k[g].num = k[c].num;
+				k[g].plus = k[c].plus;
+				k[c].name = copy;
+				k[c].num = temp1;
+				k[c].plus = temp2;
+			}
+		}
+	}
+	return srav;
 }
