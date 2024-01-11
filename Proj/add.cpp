@@ -5,7 +5,12 @@
 #include "locale.h"
 #include <iomanip>
 #include <vector>
+#include <fstream>
 #include "Fn.h"
+
+void writefile(vector<Kniga> let, int maximum) {
+
+}
 
 void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 	unsigned int cunt = 0; //Переменная для посчета
@@ -24,12 +29,16 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 }
 
 void Tabl(vector<Kniga> *let, unsigned int in, int ch) {
+	ofstream f;
 	unsigned int c = 1; //Переменная для вывода порядкого номера
 	cout << "№   Имя абонента"<< setw(26); //Вывод заголовка
 	cout <<"Номер абонента"<<endl; //Вывод заголовка
 	do {
 		for ( vector<Kniga>::iterator i = let->begin(); i != let->end(); i++ ) { //Цикл прохода по динамическому массиву
 			cout << c; //Вывод порядкового номера
+			f.open("NUMBERS.txt", ios::app);
+			f << c;
+			f.close();
 			i->print(&ch); //Вызов функции print с передачей ей количества символов в имени
 			c++; //Прибавление 1 к порядковому номеру
 		}

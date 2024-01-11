@@ -1,7 +1,34 @@
 #include "../../Proj/Fn.h"
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include <locale.h>
+
+void Kniga::search(string ser, vector<Kniga> let, vector<Kniga> *let2) {
+	vector<Kniga>::iterator j = let.begin();
+	vector<Kniga>::iterator a = let2->begin();
+	for (int i = 0; ser[i] != '\0'; i++) {
+		if (ser[i] >= 65 && ser[i] <= 90) {
+			ser[i] = ser[i] + 32;
+		}
+	}
+	j = let.begin();
+	for (; j != let.end(); j++) {
+		for (int i = 0; j->name[i] != '\0'; i++) {
+			if (j->name[i] >= 65 && j->name[i] <= 90) {
+				j->name[i] = j->name[i] + 32;
+			}
+		}
+	}
+	j = let.begin();
+	for (; j != let.end(); j++, a++) {	
+		if (ser == j->name) {
+			cout << a->name<<"\t\t\t";
+			cout << (j->plus ? "+" : " ");
+			cout << j->num;
+		}
+	}
+}
 
 int Kniga::write2(unsigned int *c) {
 	int f = 0; //Переменная для проверки на наличие ошибок при вводе номера телефона
@@ -25,15 +52,23 @@ int Kniga::write2(unsigned int *c) {
 }
 
 void Kniga::print(int *ch) {
+	ofstream f;
+	f.open("NUMBERS.txt", ios::app);
 	cout <<"   " << name; //Вывод имени
+	f << "  "<<name;
 	for (unsigned int i = 0; i < *ch - size(name); i++) { //Выравнивание по ширине по количеству символов в имени
 		cout << " "; //Печать пробелов для удобства
+		f << " ";
 	}
 	for (int i = 0; i < 24-*ch; i++) { //Печать через 24=*ch пробелов номеров телефонов
 		cout << " "; //Печать пробелов
+		f << " ";
 	}
-	cout << (plus ? "+" : " "); //Вывод знака + или пробела если в plus записано 1 или 0
+	cout << (plus ? "+" : " ");//Вывод знака + или пробела если в plus записано 1 или 0
+	f << (plus ? "+" : " ");
 	cout <<num << endl; //Вывод номера телефона
+	f << num<<endl;
+	f.close();
 }
 
 int Kniga::write() {

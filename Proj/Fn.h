@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 typedef struct Numb
@@ -42,8 +43,10 @@ public:
 	int write2(unsigned int *); //Функция записи имени
 	void print(int *); //Функция вывода имени и номера телефона
 	int sort(vector<Kniga>*);
+	void search(string, vector<Kniga>, vector<Kniga> *);
 	Kniga(){} //Конструктор
 	~Kniga() {}; //Деструктор
 };
 
 void Tabl(vector<Kniga>*, unsigned int, int); //Объявление функции Tabl, предназначенная для создания таблицы
+void writefile(vector<Kniga>);
