@@ -8,17 +8,13 @@
 #include <fstream>
 #include "Fn.h"
 
-void writefile(vector<Kniga> let, int maximum) {
-
-}
-
 void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 	unsigned int cunt = 0; //Переменная для посчета
 	printf("\t\t\t\t\t\t №     Имя абонента\t    Номер абонента\n"); //Заголовок
 	do {
 		printf("\t\t\t\t\t\t %d ", cunt+1); //Вывод порядкового числа номера телефона
 		printf("    %s", phr[cunt].Name); //Вывод имени абонента
-		for ( unsigned int i = 0; i < ( 21 - *ch ); i++ ) { //Уравнивание двоичного числа в таблице
+		for ( unsigned int i = 0; i < ( 21 - *ch ); i++ ) { //Уравнивание номера в таблице
 			printf("."); //Печать точки для удобства
 		}
 		ch++; //Переход по массиву ch для получения следующего количества цифр в номере телефона
@@ -31,14 +27,14 @@ void TelTable(Book* phr, unsigned int *ch, unsigned int c) {
 void Tabl(vector<Kniga> *let, unsigned int in, int ch) {
 	ofstream f;
 	unsigned int c = 1; //Переменная для вывода порядкого номера
-	cout << "№   Имя абонента"<< setw(26); //Вывод заголовка
+	cout << "№   Имя абонента"<<setw(26); //Вывод заголовка
 	cout <<"Номер абонента"<<endl; //Вывод заголовка
 	do {
 		for ( vector<Kniga>::iterator i = let->begin(); i != let->end(); i++ ) { //Цикл прохода по динамическому массиву
 			cout << c; //Вывод порядкового номера
-			f.open("NUMBERS.txt", ios::app);
-			f << c;
-			f.close();
+			f.open("NUMBERS.txt", ios::app); //Открытие файла для записи в него данных с параметром app, что означает добавить информацию в конец строки
+			f << c; //Вывод порядкового номера в файл
+			f.close(); //Закрытие файла
 			i->print(&ch); //Вызов функции print с передачей ей количества символов в имени
 			c++; //Прибавление 1 к порядковому номеру
 		}

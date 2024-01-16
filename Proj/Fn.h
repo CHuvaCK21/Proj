@@ -24,7 +24,7 @@ int NumberIn(Number&, unsigned int * );
 void TelTable(Book*, unsigned int*, unsigned int);
 
 
-//l5
+//l5, l6, l7
 
 class Nomer {
 protected:
@@ -42,11 +42,14 @@ public:
 	int write(); //Функция записи номера телефона
 	int write2(unsigned int *); //Функция записи имени
 	void print(int *); //Функция вывода имени и номера телефона
-	int sort(vector<Kniga>*);
-	void search(string, vector<Kniga>, vector<Kniga> *);
+	bool operator <(Kniga &); // Объявление перегрузки оператора >
+	bool operator >=(const char & ); //Объявление перегрузки оператора >=
+	bool operator <=(const char&); //Объявление перегрузки оператора <=
+	void operator -(const int &); //Объявление перегрузки оператора -
+	void search(string, vector<Kniga>, vector<Kniga> *); //Функция поиска
 	Kniga(){} //Конструктор
 	~Kniga() {}; //Деструктор
 };
 
 void Tabl(vector<Kniga>*, unsigned int, int); //Объявление функции Tabl, предназначенная для создания таблицы
-void writefile(vector<Kniga>);
+int sort(vector<Kniga>&); //Объявление функции сортировки
